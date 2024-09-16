@@ -1,0 +1,1 @@
+Admin{role='Admin1', address='Quba,Pusteqasim', position=ADMIN} Person{id=3, username='Merdan', password='ab12', email='merdan@gmail.com', phone='055555555'}
