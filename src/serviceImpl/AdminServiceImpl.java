@@ -3,6 +3,7 @@ package serviceImpl;
 import FileUtil.FileWriteRead;
 import model.entity.Admin;
 import model.entity.Elan;
+import model.entity.Person;
 import model.entity.User;
 import model.enums.AdminPosition;
 import service.AdminService;
@@ -19,23 +20,9 @@ public class AdminServiceImpl implements CommonService<Admin>, AdminService {
                 "055555555","Admin1","Quba,Pusteqasim", AdminPosition.ADMIN));
         adminList.add(new Admin(2,"Elmin","cd34","elmin@gmail.com",
                 "0704444444","Admin2","Quba,Rustov", AdminPosition.BAS_ADMIN));
+        adminList.add(new Admin(3,"Elmin","cd34","elmin@gmail.com",
+                "0704444444","Admin2","Quba,Rustov", AdminPosition.BAS_ADMIN));
 
-    }
-
-    @Override
-    public List<User> getAllUsers() {
-       UserServiceImpl userService = new UserServiceImpl();
-       return userService.getAllList();
-    }
-
-    @Override
-    public List<Admin> getAdresss(String adress) {
-        return adminList.stream().filter(unvan->unvan.getAddress().equals(adress)).toList();
-    }
-
-    @Override
-    public List<Admin> getAdRole(String role) {
-        return adminList.stream().filter(rol->rol.getRole().equals(role)).toList();
     }
 
     @Override
@@ -65,11 +52,51 @@ public class AdminServiceImpl implements CommonService<Admin>, AdminService {
     @Override
     public void getById(int id) {
         try {
-            getById(id);
-    }catch (Exception e){
+            System.out.println(adminList.get(id-1));
+        }catch (Exception e){
             new Exception("Admin Id tapilmadi");
         }
+    }
+    @Override
+    public List<Admin> getAdresss(String adress) {
+        return adminList.stream().filter(unvan->unvan.getAddress().equals(adress)).toList();
+    }
 
+    @Override
+    public List<Admin> getAdRole(String role) {
+        return adminList.stream().filter(rol->rol.getRole().equals(role)).toList();
+    }
+
+//    User
+
+    @Override
+    public List<User> getAllUsers() {
+        UserServiceImpl userService = new UserServiceImpl();
+        return userService.getAllList();
+    }
+
+    @Override
+    public void create(User object) {
+        UserServiceImpl userService = new UserServiceImpl();
+        userService.create(object);
+    }
+
+    @Override
+    public void update(int id, User object) {
+        UserServiceImpl userService = new UserServiceImpl();
+        userService.update(id, object);
+    }
+
+    @Override
+    public void deleteUser(int id) {
+        UserServiceImpl userService = new UserServiceImpl();
+        userService.delete(id);
+    }
+
+    @Override
+    public void getByIdUser(int id) {
+        UserServiceImpl userService = new UserServiceImpl();
+        userService.getById(id);
     }
 
 }

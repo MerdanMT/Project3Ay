@@ -40,7 +40,7 @@ public class UserServiceImpl implements CommonService<User>, UserService {
 
     @Override
     public void getById(int id) {
-        users.get(id);
+        System.out.println(users.get(id-1));
     }
 
     @Override

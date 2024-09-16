@@ -1,4 +1,5 @@
 import model.entity.Admin;
+import model.entity.Person;
 import model.enums.AdminPosition;
 import model.enums.UserPosition;
 import serviceImpl.AdminServiceImpl;
@@ -10,10 +11,12 @@ public class Main {
         AdminServiceImpl adminService = new AdminServiceImpl();
         UserServiceImpl userService = new UserServiceImpl();
         ElanServiceImpl elanService = new ElanServiceImpl();
-        System.out.println(adminService.getAllList());
-        System.out.println();
-        System.out.println(userService.getAllList());
-        System.out.println();
-        System.out.println(elanService.getAllList());
+        adminService.getByIdUser(1);
+
+//        System.out.println();
+//        System.out.println(userService.getAllList());
+//        System.out.println();
+//        System.out.println(elanService.getAllList());
+//        System.out.println(adminService.getAllUsers());
     }
 }
